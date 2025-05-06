@@ -4,8 +4,8 @@ export default function ProjectCard({ title, description, image }) {
   const isMobile = useMediaQuery('(max-width:768px)');
   return (
     <Card sx={{
-      height: isMobile ? 250 : 400,
-      width: isMobile ? 250 : 400,
+      height: 400,
+      width: isMobile ? 320 : 400,
       display: 'flex',
       alignContent: 'center',
       justifyContent: 'center',
