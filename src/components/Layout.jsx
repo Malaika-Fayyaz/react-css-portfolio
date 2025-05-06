@@ -31,11 +31,20 @@ function Layout() {
           },
         }}
       >
-        {/* Flex row for layout */}
-        <Box sx={{ display: 'flex', backdropFilter: 'blur(2px)' }}>
-          {!isMobile && <SideNav />}
-
-          {/* Main content container with flex column */}
+    <Box sx={{ display: 'flex' }}>
+      <SideNav />
+      
+      <Box 
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          marginLeft: isMobile ? 0 : '250px', // Matches drawer width
+          transition: 'margin-left 0.3s ease'
+        }}
+      >
+      </Box>
+    </Box>
           <Box
             component="main"
             sx={{
@@ -64,7 +73,6 @@ function Layout() {
             <Footer />
           </Box>
         </Box>
-      </Box>
     </PageTitleProvider>
   );
 }

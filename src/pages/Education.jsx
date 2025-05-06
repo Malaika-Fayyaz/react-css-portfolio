@@ -18,7 +18,6 @@ import LinkIcon from '@mui/icons-material/Link';
 import { usePageTitle } from '../context/PageTitleContext';
 import { useEffect } from 'react';
 
-// Styled component for responsive cells
 const ResponsiveTableCell = styled(TableCell)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     display: 'flex',
