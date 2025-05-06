@@ -37,6 +37,8 @@
 4. Visit the local site:
    `http://localhost:3000`
 
+---
+
 ## Screenshots
 
 ### Home Page
