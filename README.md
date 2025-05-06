@@ -30,3 +30,57 @@ A responsive portfolio website showcasing my work as a Graphic Designer, Game De
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/portfolio.git
+2. Install dependencies:
+
+cd portfolio
+npm install
+
+3. Run the development server:
+
+npm run dev
+
+4. Open your browser at:
+
+http://localhost:3000
+
+📂 Project Structure
+portfolio/
+├── src/
+│   ├── assets/          # Images and static files
+│   ├── components/      # Reusable components
+│   ├── context/         # React context providers
+│   ├── pages/           # Page components
+│   ├── styles/          # Global styles
+│   └── App.js           # Main application
+├── public/              # Static files
+└── package.json         # Project dependencies
+📷 Screenshots
+Home Page
+Home Page <!-- Add actual screenshot -->
+
+Education Page
+Education Page <!-- Add actual screenshot -->
+
+Projects Page
+Projects Page <!-- Add actual screenshot -->
+
+Contact Page
+Contact Page <!-- Add actual screenshot -->
+
+🎨 Design Highlights
+Color Scheme: Navy blue (#2C3E50) with clean white accents
+
+Typography: Modern, readable font stack
+
+Interactive Elements: Hover effects and smooth transitions
+
+Responsive Sidebar: Collapsible navigation for optimal space usage
+
+🤝 Contributing
+While this is my personal portfolio, I welcome suggestions and feedback. Please open an issue first to discuss any changes.
+
+📜 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+🌐 Live Demo
+View Live Portfolio https://react-css-portfolio-rouge.vercel.app/
