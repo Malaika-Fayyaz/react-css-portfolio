@@ -26,14 +26,15 @@ function SideNav() {
         },
       }}
     >
+
       <Avatar
         src={picture}
-        sx={{ width: 150, height: 150, border: '3px solid var(--primary-color)', marginBottom: '20px' }}
+        sx={{ width: 120, height: 120, border: '1px solid rgb(146, 159, 177)', marginBottom: '20px' }}
       />
-      <Typography variant="h5" sx={{ marginBottom: '10px', color: 'rgba(240, 229, 229, 0.86)' }}>
+      <Typography sx={{ textAlign: 'center', fontWeight: 600 , fontSize: '30px', marginBottom: '10px', color: '#fff', wordWrap: 'break-word', whiteSpace: 'normal' }}>
         Malaika Fayyaz
       </Typography>
-      <Typography sx={{ marginBottom: '20px', textAlign: 'center', color: "rgba(255, 255, 255, 0.86)" }}>
+      <Typography sx={{ marginBottom: '20px', textAlign: 'center', color: "rgb(146, 159, 177)" }}>
         Graphic Designer | Game Developer | Content Writer
       </Typography>
       <List sx={{ width: '100%' }}>

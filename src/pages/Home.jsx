@@ -17,10 +17,12 @@ function Home() {
         marginTop: isMobile ? '60px' : '60px', // controlled top margin
         // padding: isMobile ? '20px' : '10px',
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: isMobile ? '2rem' : '10rem',
+        marginTop: '2%',
+        marginLeft: '-30%',
+        gap: isMobile ? '2rem' : '3rem',
       }}
     >
       {/* Profile Image */}
@@ -29,17 +31,16 @@ function Home() {
         src={profilePic}
         alt="Profile Picture"
         sx={{
-          width: isMobile ? 250 : 400,
-          height: isMobile ? 250 : 400,
+          width: isMobile ? 250 : 300,
+          height: isMobile ? 250 : 300,
           borderRadius: '50%',
           objectFit: 'cover',
-          border: '3px solid  rgba(61, 50, 50, 0.86)',
+          border: '3px solid  #2C3E50',
           marginTop: isMobile ? '10px' : '60px',
-          marginLeft: isMobile ? 0 : '-150px',
           transition: 'transform 0.4s ease-in-out',
           '&:hover': {
             transform: 'scale(1.05)',
-            boxShadow: '0 0 20px  #000',
+            boxShadow: '0 0 20px  #2C3E50',
           },
         }}
       />
@@ -48,20 +49,9 @@ function Home() {
       <Box
         sx={{
           maxWidth: 800,
-          textAlign: isMobile ? 'center' : 'left',
+          textAlign: 'center',
         }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: isMobile ? '32px' : '40px',
-            fontWeight: 600,
-            color: ' #2C3E50',
-            marginBottom: '20px',
-          }}
-        >
-          Malaika Fayyaz
-        </Typography>
         <Typography
           variant="h4"
           sx={{

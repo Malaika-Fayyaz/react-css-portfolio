@@ -56,16 +56,16 @@ function Education() {
         sx={{
           maxWidth: 800,
           width: '100%',
-          backgroundColor: '#444',
-          border: '1px solid #7ab3e2',
+          backgroundColor: 'rgba(52, 71, 90, 0.78)',
+          border: '2px solid #2C3E50',
           '& .MuiTableCell-root': {
-            borderBottom: '1px solid #7ab3e2'
+            borderBottom: '1px solid #fff'
           }
         }}
       >
         <Table>
           <TableHead>
-            <TableRow sx={{ backgroundColor: '#555' }}>
+            <TableRow sx={{ backgroundColor: 'rgba(52, 71, 90, 0.78)' }}>
               <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Degree</TableCell>
               <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Institute</TableCell>
               <TableCell sx={{ color: '#fff', fontWeight: 'bold' }}>Year</TableCell>
@@ -74,8 +74,8 @@ function Education() {
           <TableBody>
             {educationData.map((row, index) => (
               <TableRow key={index}>
-                <TableCell sx={{ color: '#fff' }}>{row.degree}</TableCell>
-                <TableCell sx={{ color: '#fff' }}>{row.institute}</TableCell>
+                <TableCell sx={{ color: '#000' }}>{row.degree}</TableCell>
+                <TableCell sx={{ color: '#000' }}>{row.institute}</TableCell>
                 {/* <Link 
                     href={row.link} 
                     target="_blank" 
@@ -90,7 +90,7 @@ function Education() {
                   >
                     {row.institute || '-'}
                   </Link> */}
-                <TableCell sx={{ color: '#fff' }}>{row.year || '-'}</TableCell>
+                <TableCell sx={{ color: '#000' }}>{row.year || '-'}</TableCell>
 
               </TableRow>
             ))}
