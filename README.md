@@ -1,86 +1,72 @@
-# Malaika Fayyaz - Portfolio
+# Malaika Fayyaz – Portfolio
 
-![Project Banner](./screenshots/banner.png) <!-- Add your banner image if available -->
+![Project Banner](./assets/banner.png)
 
-A responsive portfolio website showcasing my work as a Graphic Designer, Game Developer, and Content Writer.
+---
 
-## ✨ Features
+## Features
 
-- **Responsive Design**: Works flawlessly on desktop, tablet, and mobile devices
-- **Interactive UI**: Smooth animations and transitions
-- **Modern Tech Stack**: Built with React and Material-UI
-- **Dynamic Content**: Easily updatable project sections
-- **Dark/Light Mode**: (Add if you have this feature)
+- Responsive design for all screen sizes
+- Smooth transitions and interactive UI
+- Built using React and Material-UI (MUI)
+- Easy-to-update content structure
+- Optional dark/light mode toggle (if implemented)
 
-## 🖥️ Technologies Used
+---
 
-- **Frontend**: 
-  - React.js
-  - Material-UI (MUI)
-  - React Router
-- **Styling**:
-  - CSS-in-JS
-  - Custom themes
-- **Build Tools**:
-  - Vite (or Create-React-App)
-  - npm/yarn
+## Technologies Used
 
-## 🚀 Installation & Setup
+### Frontend
+- React.js
+- React Router
+- Material-UI (MUI)
+
+### Styling
+- CSS-in-JS
+- MUI Theme customization
+
+---
+
+## Installation & Setup
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/portfolio.git
-2. Install dependencies:
+   `git clone https://github.com/yourusername/portfolio.git`
 
-cd portfolio
-npm install
+2. Navigate into the project folder and install dependencies:
+   `cd portfolio && npm install`
 
-3. Run the development server:
+3. Start the development server:
+   `npm run dev`
 
-npm run dev
+4. Visit the local site:
+   `http://localhost:3000`
 
-4. Open your browser at:
+## Screenshots
 
-http://localhost:3000
+### Home Page
+*(Add actual screenshot here)*
 
-📂 Project Structure
-portfolio/
-├── src/
-│   ├── assets/          # Images and static files
-│   ├── components/      # Reusable components
-│   ├── context/         # React context providers
-│   ├── pages/           # Page components
-│   ├── styles/          # Global styles
-│   └── App.js           # Main application
-├── public/              # Static files
-└── package.json         # Project dependencies
-📷 Screenshots
-Home Page
-Home Page <!-- Add actual screenshot -->
+### Education Page
+*(Add actual screenshot here)*
 
-Education Page
-Education Page <!-- Add actual screenshot -->
+### Projects Page
+*(Add actual screenshot here)*
 
-Projects Page
-Projects Page <!-- Add actual screenshot -->
+### Contact Page
+*(Add actual screenshot here)*
 
-Contact Page
-Contact Page <!-- Add actual screenshot -->
+---
 
-🎨 Design Highlights
-Color Scheme: Navy blue (#2C3E50) with clean white accents
+## Design Highlights
 
-Typography: Modern, readable font stack
+- **Color Scheme**: Navy blue (#2C3E50), white, and soft greys
+- **Typography**: Clean, modern font stack
+- **Sidebar**: Collapsible layout for better usability
+- **Effects**: Hover animations, smooth transitions, and layout responsiveness
 
-Interactive Elements: Hover effects and smooth transitions
+---
 
-Responsive Sidebar: Collapsible navigation for optimal space usage
+## Live Demo
 
-🤝 Contributing
-While this is my personal portfolio, I welcome suggestions and feedback. Please open an issue first to discuss any changes.
+Visit the live site: [https://react-css-portfolio-rouge.vercel.app](https://react-css-portfolio-rouge.vercel.app)
 
-📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-🌐 Live Demo
-View Live Portfolio https://react-css-portfolio-rouge.vercel.app/
