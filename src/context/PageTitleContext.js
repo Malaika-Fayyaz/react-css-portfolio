@@ -1,15 +1,21 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react';
 
-const PageTitleContext = createContext()
+const PageTitleContext = createContext();
 
-export const PageTitleProvider = ({ children }) => {
-  const [title, setTitle] = useState('Portfolio')
+export function PageTitleProvider({ children }) {
+  const [title, setTitle] = useState('Portfolio');
 
   return (
     <PageTitleContext.Provider value={{ title, setTitle }}>
       {children}
     </PageTitleContext.Provider>
-  )
+  );
 }
 
-export const usePageTitle = () => useContext(PageTitleContext)
+export function usePageTitle() {
+  const context = useContext(PageTitleContext);
+  if (!context) {
+    throw new Error('usePageTitle must be used within a PageTitleProvider');
+  }
+  return context;
+}

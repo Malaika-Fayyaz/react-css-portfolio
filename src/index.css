@@ -1,4 +1,37 @@
+
 :root {
+  --primary: #7ab3e2;
+  --secondary: #0a0227;
+  --text: #f7f8f8;
+  --accent: #ff6b6b;
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  background-color: var(--secondary);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* :root {
     --primary-color: #7ab3e2;
     --bg-color: #0a0227;
     --text-color: #ecf0f1;
@@ -11,7 +44,7 @@
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-  }
+  } 
   
   .section {
     margin-top: 100px;
@@ -32,5 +65,5 @@
     gap: 30px;
     align-items: center;
   }
-  
+  */
   /* Add other global styles from your original CSS as needed */
