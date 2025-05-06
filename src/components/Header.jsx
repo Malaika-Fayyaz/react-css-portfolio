@@ -1,9 +1,10 @@
+
 import { AppBar, Toolbar, Typography, IconButton, Avatar } from '@mui/material';
 import { usePageTitle } from '../context/PageTitleContext';
 import picture from '../assets/mypicture2.jpg';
 
 function Header() {
-  const { title } = usePageTitle(); // Now this will work
+  const { title } = usePageTitle(); 
 
   return (
     <AppBar position="fixed" sx={{ 

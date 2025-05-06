@@ -14,14 +14,13 @@ function Home() {
   return (
     <Box
       sx={{
-        marginTop: isMobile ? '60px' : '60px', // controlled top margin
-        // padding: isMobile ? '20px' : '10px',
+        marginTop: isMobile ? '60px' : '60px', 
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '2%',
-        marginLeft: '-30%',
+        marginTop: isMobile? '20%' :'2%',
+        marginLeft: isMobile? '0%' :'-30%',
         gap: isMobile ? '2rem' : '3rem',
       }}
     >

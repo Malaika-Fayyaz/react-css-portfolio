@@ -10,7 +10,7 @@ function Footer() {
         px: 2,
         backgroundColor: 'var(--bg-color)',
         borderTop: '1px solid var(--primary-color)',
-        textAlign: 'center',
+        textAlign: 'right',
         width: '100%',
       }}
     >
