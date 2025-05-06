@@ -1,5 +1,7 @@
 import { Box, TextField, Button, Typography, useMediaQuery } from '@mui/material';
 import { useFormik } from 'formik';
+import { usePageTitle } from '../context/PageTitleContext';
+import { useEffect } from 'react';
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
@@ -9,7 +11,12 @@ const validationSchema = yup.object({
 });
 
 function ContactForm() {
+  const { setTitle } = usePageTitle();
   const isMobile = useMediaQuery('(max-width:768px)');
+
+  useEffect(() => {
+    setTitle('Contact');
+  }, [setTitle]);
   const formik = useFormik({
     initialValues: {
       name: '',

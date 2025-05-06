@@ -15,7 +15,7 @@ function Footer() {
       }}
     >
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        © {new Date().getFullYear()} Malaika Fayyaz - Portfolio
+        © {new Date().getFullYear()} Malaika Fayyaz - All Rights Reserved
       </Typography>
     </Box>
   );
