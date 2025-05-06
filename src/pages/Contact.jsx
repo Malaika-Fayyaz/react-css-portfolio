@@ -1,14 +1,15 @@
-import { Box, TextField, Button, Typography } from '@mui/material'
-import { useFormik } from 'formik'
-import * as yup from 'yup'
+import { Box, TextField, Button, Typography, useMediaQuery } from '@mui/material';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 const validationSchema = yup.object({
   name: yup.string().required('Name is required'),
   email: yup.string().email('Enter a valid email').required('Email is required'),
   message: yup.string().required('Message is required'),
-})
+});
 
 function ContactForm() {
+  const isMobile = useMediaQuery('(max-width:768px)');
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -17,11 +18,11 @@ function ContactForm() {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log('Form submitted:', values)
-      alert('Message sent successfully!')
-      formik.resetForm()
+      console.log('Form submitted:', values);
+      alert('Message sent successfully!');
+      formik.resetForm();
     },
-  })
+  });
 
   return (
     <Box
@@ -29,13 +30,17 @@ function ContactForm() {
       onSubmit={formik.handleSubmit}
       sx={{
         maxWidth: 700,
-        marginTop: '50px',
-        marginLeft: '-90px',
-        padding: '20px',
+        width: '100%',
+        marginTop: isMobile ? '50px' : '60px',
+        marginLeft: isMobile ? '0' : '-90px',
+        padding: isMobile ? '15px' : '20px',
         border: '2px solid var(--primary-color)',
         borderRadius: '15px',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
       }}
     >
+      {/* Name Field */}
       <Box sx={{ mb: 3 }}>
         <Typography variant="body1" sx={{ color: 'var(--primary-color)', fontWeight: 600, mb: 1 }}>
           Name
@@ -60,9 +65,14 @@ function ContactForm() {
                 borderColor: 'var(--primary-color)',
               },
             },
+            '& .MuiInputBase-input': {
+              padding: isMobile ? '12px 16px' : '14px 16px',
+            }
           }}
         />
       </Box>
+
+      {/* Email Field */}
       <Box sx={{ mb: 3 }}>
         <Typography variant="body1" sx={{ color: 'var(--primary-color)', fontWeight: 600, mb: 1 }}>
           Email
@@ -87,9 +97,14 @@ function ContactForm() {
                 borderColor: 'var(--primary-color)',
               },
             },
+            '& .MuiInputBase-input': {
+              padding: isMobile ? '12px 16px' : '14px 16px',
+            }
           }}
         />
       </Box>
+
+      {/* Message Field */}
       <Box sx={{ mb: 3 }}>
         <Typography variant="body1" sx={{ color: 'var(--primary-color)', fontWeight: 600, mb: 1 }}>
           Message
@@ -100,7 +115,7 @@ function ContactForm() {
           name="message"
           placeholder="Write your message here"
           multiline
-          rows={4}
+          rows={isMobile ? 3 : 4}
           value={formik.values.message}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -119,27 +134,37 @@ function ContactForm() {
           }}
         />
       </Box>
-      <Button
-        type="submit"
-        variant="contained"
-        sx={{
-          backgroundColor: 'var(--primary-color)',
-          color: 'var(--bg-color)',
-          fontWeight: 800,
-          '&:hover': {
-            backgroundColor: '#7ab3e2',
-            transform: 'scale(1.1)',
-          },
-          transition: 'background-color 0.3s ease, transform 0.3s ease',
-          float: 'right',
-        }}
-      >
-        Submit
-      </Button>
+
+      {/* Submit Button - Now with perfect positioning */}
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: isMobile ? 'center' : 'flex-end',
+        width: '100%',
+        mt: 3
+      }}>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            backgroundColor: 'var(--primary-color)',
+            color: 'var(--bg-color)',
+            fontWeight: 800,
+            padding: isMobile ? '10px 24px' : '12px 32px',
+            fontSize: isMobile ? '0.9rem' : '1rem',
+            minWidth: isMobile ? '100%' : '120px',
+            '&:hover': {
+              backgroundColor: '#7ab3e2',
+              transform: isMobile ? 'none' : 'scale(1.05)',
+            },
+            transition: 'all 0.3s ease',
+          }}
+        >
+          Submit
+        </Button>
+      </Box>
     </Box>
-  )
+  );
 }
 
-export default ContactForm
-
+export default ContactForm;
 

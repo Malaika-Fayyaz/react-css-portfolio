@@ -29,7 +29,7 @@ function SideNav() {
 
       <Avatar
         src={picture}
-        sx={{ width: 120, height: 120, border: '1px solid rgb(146, 159, 177)', marginBottom: '20px' }}
+        sx={{ width: 150, height: 150, border: '1px solid rgb(146, 159, 177)', marginBottom: '20px' }}
       />
       <Typography sx={{ textAlign: 'center', fontWeight: 600 , fontSize: '30px', marginBottom: '10px', color: '#fff', wordWrap: 'break-word', whiteSpace: 'normal' }}>
         Malaika Fayyaz
