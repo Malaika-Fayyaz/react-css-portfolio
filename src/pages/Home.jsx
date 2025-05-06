@@ -54,9 +54,9 @@ function Home() {
         <Typography
           variant="h2"
           sx={{
-            fontSize: isMobile ? '36px' : '48px',
-            fontWeight: 800,
-            color: '#f9f9fc',
+            fontSize: isMobile ? '32px' : '40px',
+            fontWeight: 600,
+            color: ' #2C3E50',
             marginBottom: '20px',
           }}
         >
@@ -65,10 +65,10 @@ function Home() {
         <Typography
           variant="h4"
           sx={{
-            color: ' rgba(160, 149, 149, 0.86)',
+            color: ' #6D7B8D',
             marginBottom: '10px',
-            fontWeight: 400,
-            fontSize: isMobile ? '24px' : '28px',
+            fontWeight: 600,
+            fontSize: isMobile ? '20px' : '25px',
           }}
         >
           About Me

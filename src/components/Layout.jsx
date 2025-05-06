@@ -13,7 +13,7 @@ function Layout() {
       {/* Outer Box: NO minHeight here */}
       <Box
         sx={{
-          background: 'rgba(77, 74, 74, 0.97)',
+          background: ' #F5F5F5',
           position: 'relative',
           overflow: 'hidden',
           '&::before': {

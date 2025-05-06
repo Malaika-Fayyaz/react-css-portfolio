@@ -16,7 +16,7 @@ function SideNav() {
         '& .MuiDrawer-paper': {
           width: 250,
           boxSizing: 'border-box',
-          backgroundColor: 'rgba(53, 47, 47, 0.97)',
+          backgroundColor: ' #2C3E50',
           borderRight: 'linear-gradient(180deg,rgba(53, 47, 47, 0.97) 0%,rgba(77, 74, 74, 0.97)) 100%',
           color: 'var(--text-color)',
           display: 'flex',
@@ -33,7 +33,7 @@ function SideNav() {
       <Typography variant="h5" sx={{ marginBottom: '10px', color: 'rgba(240, 229, 229, 0.86)' }}>
         Malaika Fayyaz
       </Typography>
-      <Typography sx={{ marginBottom: '20px', textAlign: 'center', color: "rgba(160, 149, 149, 0.86)" }}>
+      <Typography sx={{ marginBottom: '20px', textAlign: 'center', color: "rgba(255, 255, 255, 0.86)" }}>
         Graphic Designer | Game Developer | Content Writer
       </Typography>
       <List sx={{ width: '100%' }}>
