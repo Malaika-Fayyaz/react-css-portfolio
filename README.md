@@ -1,9 +1,5 @@
 # Malaika Fayyaz – Portfolio
 
-![Project Banner](./assets/banner.png)
-
----
-
 ## Features
 
 - Responsive design for all screen sizes
