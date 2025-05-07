@@ -65,7 +65,7 @@ function SideNav() {
             onClick={toggleDrawer}
             sx={{
               position: 'fixed',
-              top: 15,
+              top: 13,
               left: 15,
               zIndex: 1200,
               color: '#fff',

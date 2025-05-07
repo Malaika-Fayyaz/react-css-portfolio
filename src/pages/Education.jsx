@@ -21,9 +21,9 @@ import { useEffect, useState } from 'react';
 const ResponsiveTableCell = styled(TableCell)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     display: 'flex',
-    width: '100% !important',
+    width: '100%',
     borderBottom: 'none',
-    padding: '8px 16px',
+    padding: '16px 16px',
     '&:before': {
       content: 'attr(data-label)',
       fontWeight: 600,
@@ -73,7 +73,7 @@ function Education() {
   return (
 
     <Box sx={{ 
-      maxWidth: drawerOpen && !isMobile ? 'calc(100% - 250px)' : '100%',
+      maxWidth: drawerOpen && !isMobile ? '100%': '100%',
       transition: 'max-width 0.3s ease'
     }}>
 
@@ -86,14 +86,13 @@ function Education() {
         padding: isMobile ? 1 : 2,
         borderRadius: '16px',
         marginTop: isMobile ? '20%' : '10%',
-        marginLeft: isMobile ? '0' : '-30%',
-        width: isMobile ? '100%' : 'auto'
+        marginLeft: isMobile? 0: drawerOpen ? '-20%' : '-15%',
+        width: isMobile ? '100%' : '100%'
       }}
     >
       <TableContainer
         component={Paper}
         sx={{
-          maxWidth: '100%',
           width: '100%',
           borderRadius: '16px',
           boxShadow: '0 10px 30px rgba(0,0,0,0.1)',

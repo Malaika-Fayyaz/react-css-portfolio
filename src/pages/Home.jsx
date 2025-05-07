@@ -2,11 +2,12 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { usePageTitle } from '../context/PageTitleContext';
 import profilePic from '../assets/mypicture2.jpg';
+import { useDrawerState } from '../components/SideNav'; 
 
 function Home() {
   const { setTitle } = usePageTitle();
   const isMobile = useMediaQuery('(max-width:768px)');
-  const [drawerOpen, setDrawerOpen] = useState(!isMobile);
+  const { drawerOpen } = useDrawerState(); 
 
   useEffect(() => {
     setTitle('Home');
@@ -25,8 +26,7 @@ function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: isMobile? '20%' :'2%',
-        // marginLeft: isMobile? '0%' : '-30%',
-        marginLeft: isMobile? '0%' : drawerOpen? '-30%' : '-50%',
+        marginLeft: isMobile? '0%' : drawerOpen? '-15%' : '-25%',
         gap: isMobile ? '2rem' : '3rem',
       }}
     >

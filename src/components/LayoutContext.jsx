@@ -1,23 +1,23 @@
-import { createContext, useContext, useState } from 'react';
+// import { createContext, useContext, useState } from 'react';
 
-const LayoutContext = createContext();
+// const LayoutContext = createContext();
 
-export const LayoutProvider = ({ children }) => {
-  const [drawerOpen, setDrawerOpen] = useState(true);
+// export const LayoutProvider = ({ children }) => {
+//   const [drawerOpen, setDrawerOpen] = useState(true);
   
-  const toggleDrawer = () => setDrawerOpen(!drawerOpen);
+//   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
 
-  return (
-    <LayoutContext.Provider value={{ drawerOpen, toggleDrawer }}>
-      {children}
-    </LayoutContext.Provider>
-  );
-};
+//   return (
+//     <LayoutContext.Provider value={{ drawerOpen, toggleDrawer }}>
+//       {children}
+//     </LayoutContext.Provider>
+//   );
+// };
 
-export const useLayout = () => {
-  const context = useContext(LayoutContext);
-  if (context === undefined) {
-    throw new Error('useLayout must be used within a LayoutProvider');
-  }
-  return context;
-};
+// export const useLayout = () => {
+//   const context = useContext(LayoutContext);
+//   if (context === undefined) {
+//     throw new Error('useLayout must be used within a LayoutProvider');
+//   }
+//   return context;
+// };

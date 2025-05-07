@@ -1,7 +1,6 @@
 
 import { AppBar, Toolbar, Typography, Avatar, useMediaQuery } from '@mui/material';
 import { usePageTitle } from '../context/PageTitleContext';
-import { useState } from 'react';
 import picture from '../assets/mypicture2.jpg';
 import { useDrawerState } from './SideNav'; 
 
@@ -13,12 +12,12 @@ function Header() {
 
   return (
     <AppBar position="fixed" sx={{ 
-      width: isMobile? '100%': 'calc(100% - 250px)',
+      width: drawerOpen? 'calc(100% - 250px)' : '100%',
       background: ' #F5F5F5',
       borderBottom: '2px solid var(--primary)'
     }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ textAlign: isMobile? "center"  : "left",
+        <Typography variant="h6" component="div" sx={{ textAlign: isMobile? "center": "left", paddingLeft: !isMobile && drawerOpen? '0%' : '5%',
           flexGrow: 1 , color: '#6D7B8D', fontWeight: 600}}>
           {title}
         </Typography>
