@@ -1,19 +1,25 @@
 
-import { AppBar, Toolbar, Typography, IconButton, Avatar } from '@mui/material';
+import { AppBar, Toolbar, Typography, Avatar, useMediaQuery } from '@mui/material';
 import { usePageTitle } from '../context/PageTitleContext';
+import { useState } from 'react';
 import picture from '../assets/mypicture2.jpg';
+import { useDrawerState } from './SideNav'; 
 
 function Header() {
   const { title } = usePageTitle(); 
+  const isMobile = useMediaQuery('(max-width:768px)');
+  const { drawerOpen } = useDrawerState(); 
+
 
   return (
     <AppBar position="fixed" sx={{ 
-      width: { xs: '100%', sm: 'calc(100% - 250px)' },
-      backgroundColor: 'var(--secondary)',
+      width: isMobile? '100%': 'calc(100% - 250px)',
+      background: ' #F5F5F5',
       borderBottom: '2px solid var(--primary)'
     }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 , color: '#6D7B8D'}}>
+        <Typography variant="h6" component="div" sx={{ textAlign: isMobile? "center"  : "left",
+          flexGrow: 1 , color: '#6D7B8D', fontWeight: 600}}>
           {title}
         </Typography>
         <Avatar src={picture} />

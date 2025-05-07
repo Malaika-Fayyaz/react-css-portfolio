@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { createContext, useContext ,useState, useEffect } from 'react';
 import { 
   Drawer, 
   Avatar, 
@@ -18,13 +18,33 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import picture from '../assets/mypicture2.jpg';
 
-function SideNav() {
+const DrawerContext = createContext();
+
+export function useDrawerState() {
   const isMobile = useMediaQuery('(max-width:768px)');
   const [drawerOpen, setDrawerOpen] = useState(!isMobile);
+
+  useEffect(() => {
+    setDrawerOpen(!isMobile);
+  }, [isMobile]);
+
+  return useContext(DrawerContext);
+}
+
+export function DrawerProvider({ children }) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  return (
+    <DrawerContext.Provider value={{ drawerOpen, setDrawerOpen }}>
+      {children}
+    </DrawerContext.Provider>
+  );
+}
+
+function SideNav() {
+  const { drawerOpen, setDrawerOpen, isMobile } = useDrawerState();
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -36,10 +56,6 @@ function SideNav() {
     }
   };
 
-  useEffect(() => {
-    setDrawerOpen(!isMobile);
-  }, [isMobile]);
-
   return (
     <>
       {/* Persistent toggle button when drawer is closed (desktop only) */}
@@ -49,8 +65,8 @@ function SideNav() {
             onClick={toggleDrawer}
             sx={{
               position: 'fixed',
-              top: 20,
-              left: 20,
+              top: 15,
+              left: 15,
               zIndex: 1200,
               color: '#fff',
               backgroundColor: '#2C3E50',
@@ -70,8 +86,8 @@ function SideNav() {
           onClick={toggleDrawer}
           sx={{
             position: 'fixed',
-            top: 16,
-            left: 16,
+            top: 10,
+            left: 10,
             zIndex: 1300,
             color: '#fff',
             backgroundColor: '#2C3E50',
@@ -80,7 +96,7 @@ function SideNav() {
             }
           }}
         >
-          {drawerOpen ? <CloseIcon /> : <MenuIcon />}
+          <MenuIcon />
         </IconButton>
       )}
 
@@ -108,9 +124,14 @@ function SideNav() {
       >
         {/* Desktop close button */}
         {!isMobile && (
-          <Box sx={{ alignSelf: 'flex-end', pr: 2 }}>
+          <Box sx={{ alignSelf: 'flex-end', pr: 2,
+            position: 'fixed',
+            top: 10,
+            left: 10,
+            zIndex: 1200,
+          }}>
             <IconButton onClick={toggleDrawer} sx={{ color: 'white' }}>
-              <CloseIcon />
+              <MenuIcon />
             </IconButton>
           </Box>
         )}
@@ -182,94 +203,3 @@ function SideNav() {
 }
 
 export default SideNav;
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Drawer, Avatar, Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-// import { Link } from 'react-router-dom';
-// import HomeIcon from '@mui/icons-material/Home';
-// import SchoolIcon from '@mui/icons-material/School';
-// import WorkIcon from '@mui/icons-material/Work';
-// import ContactMailIcon from '@mui/icons-material/ContactMail';
-// import picture from '../assets/mypicture2.jpg';
-
-// function SideNav() {
-//   return (
-//     <Drawer
-//       variant="permanent"
-//       sx={{
-//         width: 250,
-//         flexShrink: 0,
-//         '& .MuiDrawer-paper': {
-//           width: 250,
-//           boxSizing: 'border-box',
-//           backgroundColor: ' #2C3E50',
-//           borderRight: 'linear-gradient(180deg,rgba(53, 47, 47, 0.97) 0%,rgba(77, 74, 74, 0.97)) 100%',
-//           color: 'var(--text-color)',
-//           display: 'flex',
-//           flexDirection: 'column',
-//           alignItems: 'center',
-//           padding: '20px 0',
-//         },
-//       }}
-//     >
-
-//       <Avatar
-//         src={picture}
-//         sx={{ width: 150, height: 150, border: '1px solid rgb(146, 159, 177)', marginBottom: '20px' }}
-//       />
-//       <Typography sx={{ textAlign: 'center', fontWeight: 600 , fontSize: '30px', marginBottom: '10px', color: '#fff', wordWrap: 'break-word', whiteSpace: 'normal' }}>
-//         Malaika Fayyaz
-//       </Typography>
-//       <Typography sx={{ marginBottom: '20px', textAlign: 'center', color: "rgb(146, 159, 177)" }}>
-//         Graphic Designer | Game Developer | Content Writer
-//       </Typography>
-//       <List sx={{ width: '100%' }}>
-//   {[
-//     { text: 'Home', icon: <HomeIcon />, path: '/' },
-//     { text: 'Education', icon: <SchoolIcon />, path: '/education' },
-//     { text: 'Projects', icon: <WorkIcon />, path: '/projects' },
-//     { text: 'Contact', icon: <ContactMailIcon />, path: '/contact' },
-//   ].map((item) => (
-//     <ListItem 
-//       button 
-//       key={item.text} 
-//       component={Link} 
-//       to={item.path}
-//       sx={{ 
-//         color: 'inherit',
-//         '&:hover': {
-//           '& .MuiListItemText-root': {
-//             color: 'rgba(199, 189, 189, 0.86)'
-//           },
-//           '& .MuiListItemIcon-root': {
-//             color: 'rgba(199, 189, 189, 0.86)'
-//         }
-//       }}}
-//     >
-//       <ListItemIcon sx={{ color: 'var(--primary-color)' }}>
-//         {item.icon}
-//       </ListItemIcon>
-//       <ListItemText 
-//         primary={item.text} 
-//         sx={{
-//           transition: 'color 0.3s ease',
-//         }}
-//       />
-//     </ListItem>
-//   ))}
-// </List>
-//     </Drawer>
-//   );
-// }
-
-// export default SideNav;

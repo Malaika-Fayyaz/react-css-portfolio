@@ -4,16 +4,19 @@ import SideNav from './SideNav';
 import Footer from './Footer';
 import { useMediaQuery, Box } from '@mui/material';
 import { PageTitleProvider } from '../context/PageTitleContext';
+import { useDrawerState } from './SideNav'; 
 
 function Layout() {
   const isMobile = useMediaQuery('(max-width:768px)');
+  const { drawerOpen } = useDrawerState(); 
+
+  const drawerWidth = 250;
 
   return (
     <PageTitleProvider>
-      {/* Outer Box: NO minHeight here */}
       <Box
         sx={{
-          background: ' #F5F5F5',
+          background: '#F5F5F5',
           position: 'relative',
           overflow: 'hidden',
           '&::before': {
@@ -31,29 +34,18 @@ function Layout() {
           },
         }}
       >
-    <Box sx={{ display: 'flex' }}>
-      <SideNav />
-      
-      <Box 
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          marginLeft: isMobile ? 0 : '250px', // Matches drawer width
-          transition: 'margin-left 0.3s ease'
-        }}
-      >
-      </Box>
-    </Box>
+        <Box sx={{ display: 'flex' }}>
+          <SideNav />
+
           <Box
             component="main"
             sx={{
               flexGrow: 1,
-              paddingLeft: !isMobile ? '280px' : 0,
-              transition: 'padding 0.3s ease',
               display: 'flex',
               flexDirection: 'column',
-              minHeight: '100vh', // only here!
+              minHeight: '100vh',
+              transition: 'margin-left 0.3s ease',
+              marginLeft: isMobile ? 0 : drawerOpen ? `${drawerWidth}px` : 0,
             }}
           >
             <Header />
@@ -61,7 +53,7 @@ function Layout() {
             {/* Page Content */}
             <Box
               sx={{
-                flex: 1, // this is crucial to push Footer down
+                flex: 1,
                 padding: '2rem',
                 position: 'relative',
                 zIndex: 1,
@@ -73,6 +65,7 @@ function Layout() {
             <Footer />
           </Box>
         </Box>
+      </Box>
     </PageTitleProvider>
   );
 }

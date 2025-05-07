@@ -1,5 +1,5 @@
-import { Box, Grid } from '@mui/material'
-import { useEffect } from 'react'
+import { Box, Grid, useMediaQuery } from '@mui/material'
+import { useEffect, useState } from 'react'
 import { usePageTitle } from '../context/PageTitleContext'
 import ProjectCard from '../components/ProjectCard'
 import project1Img from '../assets/project1.png';
@@ -8,6 +8,8 @@ import project3Img from '../assets/project3.png';
 
 function Projects() {
   const { setTitle } = usePageTitle()
+  const isMobile = useMediaQuery('(max-width:768px)');
+  const [drawerOpen, setDrawerOpen] = useState(!isMobile);
 
   useEffect(() => {
     setTitle('Projects')
@@ -35,6 +37,10 @@ function Projects() {
   ]
 
   return (
+    <Box sx={{ 
+      maxWidth: drawerOpen && !isMobile ? 'calc(100% - 250px)' : '100%',
+      transition: 'max-width 0.3s ease'
+    }}>
     <Box 
       className="section"
       sx={{
@@ -54,6 +60,7 @@ function Projects() {
           </Grid>
         ))}
       </Grid>
+    </Box>
     </Box>
   )
 }

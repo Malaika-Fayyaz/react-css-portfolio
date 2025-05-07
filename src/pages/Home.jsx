@@ -1,17 +1,22 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { usePageTitle } from '../context/PageTitleContext';
 import profilePic from '../assets/mypicture2.jpg';
 
 function Home() {
   const { setTitle } = usePageTitle();
   const isMobile = useMediaQuery('(max-width:768px)');
+  const [drawerOpen, setDrawerOpen] = useState(!isMobile);
 
   useEffect(() => {
     setTitle('Home');
   }, [setTitle]);
 
   return (
+    <Box sx={{ 
+      maxWidth: drawerOpen && !isMobile ? 'calc(100% - 250px)' : '100%',
+      transition: 'max-width 0.3s ease'
+    }}>
     <Box
       sx={{
         marginTop: isMobile ? '60px' : '60px', 
@@ -20,7 +25,8 @@ function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: isMobile? '20%' :'2%',
-        marginLeft: isMobile? '0%' :'-30%',
+        // marginLeft: isMobile? '0%' : '-30%',
+        marginLeft: isMobile? '0%' : drawerOpen? '-30%' : '-50%',
         gap: isMobile ? '2rem' : '3rem',
       }}
     >
@@ -77,6 +83,7 @@ function Home() {
           playing basketball and badminton, sketching, and constantly seeking out new creative challenges.
         </Typography>
       </Box>
+    </Box>
     </Box>
   );
 }

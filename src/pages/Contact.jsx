@@ -1,7 +1,7 @@
 import { Box, TextField, Button, Typography, useMediaQuery } from '@mui/material';
 import { useFormik } from 'formik';
 import { usePageTitle } from '../context/PageTitleContext';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
@@ -13,6 +13,7 @@ const validationSchema = yup.object({
 function ContactForm() {
   const { setTitle } = usePageTitle();
   const isMobile = useMediaQuery('(max-width:768px)');
+  const [drawerOpen, setDrawerOpen] = useState(!isMobile);
 
   useEffect(() => {
     setTitle('Contact');
@@ -32,6 +33,10 @@ function ContactForm() {
   });
 
   return (
+    <Box sx={{ 
+      maxWidth: drawerOpen && !isMobile ? 'calc(100% - 250px)' : '100%',
+      transition: 'max-width 0.3s ease'
+    }}>
     <Box
       component="form"
       onSubmit={formik.handleSubmit}
@@ -169,6 +174,7 @@ function ContactForm() {
           Submit
         </Button>
       </Box>
+    </Box>
     </Box>
   );
 }
