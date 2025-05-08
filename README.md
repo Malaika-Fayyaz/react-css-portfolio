@@ -42,7 +42,7 @@
 ## Screenshots
 
 ### Home Page
-*(Add actual screenshot here)*
+![HomePageWithSideNav](./assets/homepage1.png)
 
 ### Education Page
 *(Add actual screenshot here)*
