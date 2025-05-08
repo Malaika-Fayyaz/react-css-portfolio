@@ -26,7 +26,7 @@ function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: isMobile? '20%' :'2%',
-        marginLeft: isMobile? '0%' : drawerOpen? '-15%' : '-25%',
+        marginLeft: isMobile? '0%' : drawerOpen? '-10%' : '-20%',
         gap: isMobile ? '2rem' : '3rem',
       }}
     >

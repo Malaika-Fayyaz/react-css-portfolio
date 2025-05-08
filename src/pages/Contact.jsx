@@ -2,6 +2,7 @@ import { Box, TextField, Button, Typography, useMediaQuery } from '@mui/material
 import { useFormik } from 'formik';
 import { usePageTitle } from '../context/PageTitleContext';
 import { useEffect, useState } from 'react';
+import { useDrawerState } from '../components/SideNav';
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
@@ -13,7 +14,7 @@ const validationSchema = yup.object({
 function ContactForm() {
   const { setTitle } = usePageTitle();
   const isMobile = useMediaQuery('(max-width:768px)');
-  const [drawerOpen, setDrawerOpen] = useState(!isMobile);
+  const { drawerOpen } = useDrawerState(); 
 
   useEffect(() => {
     setTitle('Contact');
@@ -34,7 +35,7 @@ function ContactForm() {
 
   return (
     <Box sx={{ 
-      maxWidth: drawerOpen && !isMobile ? 'calc(100% - 250px)' : '100%',
+      // maxWidth: drawerOpen && !isMobile ? 'calc(100% - 250px)' : '100%',
       transition: 'max-width 0.3s ease'
     }}>
     <Box
@@ -44,7 +45,7 @@ function ContactForm() {
         maxWidth: 700,
         width: '100%',
         marginTop: isMobile ? '50px' : '60px',
-        marginLeft: isMobile ? '0' : '-90px',
+        marginLeft: isMobile ? '0' : drawerOpen? '-100px': '5%',
         padding: isMobile ? '15px' : '20px',
         border: '2px solid var(--primary-color)',
         borderRadius: '15px',

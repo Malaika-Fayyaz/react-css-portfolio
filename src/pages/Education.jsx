@@ -28,7 +28,7 @@ const ResponsiveTableCell = styled(TableCell)(({ theme }) => ({
       content: 'attr(data-label)',
       fontWeight: 600,
       width: '120px',
-      minWidth: '120px',
+      // minWidth: '120px',
       display: 'inline-block',
       color: theme.palette.text.secondary
     }
@@ -73,7 +73,7 @@ function Education() {
   return (
 
     <Box sx={{ 
-      maxWidth: drawerOpen && !isMobile ? '100%': '100%',
+      // maxWidth: drawerOpen && !isMobile ? '100%': '100%',
       transition: 'max-width 0.3s ease'
     }}>
 
@@ -86,8 +86,8 @@ function Education() {
         padding: isMobile ? 1 : 2,
         borderRadius: '16px',
         marginTop: isMobile ? '20%' : '10%',
-        marginLeft: isMobile? 0: drawerOpen ? '-20%' : '-15%',
-        width: isMobile ? '100%' : '100%'
+        marginLeft: isMobile? 0: drawerOpen ? '-10%' : "0%",
+        width: isMobile ? '100%' : drawerOpen? '100%' : '100%',
       }}
     >
       <TableContainer

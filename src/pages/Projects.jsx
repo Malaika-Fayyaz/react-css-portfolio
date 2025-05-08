@@ -5,11 +5,12 @@ import ProjectCard from '../components/ProjectCard'
 import project1Img from '../assets/project1.png';
 import project2Img from '../assets/project2.jpeg';
 import project3Img from '../assets/project3.png';
+import { useDrawerState } from '../components/SideNav';
 
 function Projects() {
   const { setTitle } = usePageTitle()
   const isMobile = useMediaQuery('(max-width:768px)');
-  const [drawerOpen, setDrawerOpen] = useState(!isMobile);
+  const { drawerOpen } = useDrawerState(); 
 
   useEffect(() => {
     setTitle('Projects')
@@ -44,9 +45,12 @@ function Projects() {
     <Box 
       className="section"
       sx={{
-        marginTop: '30px',
-        paddingLeft: '20px', 
-        paddingTop: '20px',  
+        display: 'flex',
+        flexDirection: drawerOpen? 'column' : 'row',
+        alignItems: "center",
+        justifyContent: 'center',
+        marginTop: drawerOpen? '10%' : '10%',
+        marginLeft: drawerOpen? '15%' : '-23%',   
       }}
     >
       <Grid container spacing={4} justifyContent="flex-start"> 

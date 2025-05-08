@@ -2,14 +2,15 @@ import { Card, CardContent, CardMedia, Typography, useMediaQuery } from '@mui/ma
 
 export default function ProjectCard({ title, description, image }) {
   const isMobile = useMediaQuery('(max-width:768px)');
+
   return (
     <Card sx={{
       height: 400,
       width: isMobile ? 320 : 400,
       display: 'flex',
+      flexDirection: 'column',
       alignContent: 'center',
       justifyContent: 'center',
-      flexDirection: 'column',
       background: 'var(--card-bg)',
       backdropFilter: 'blur(10px)',
       border: '2px solid #2C3E50',
