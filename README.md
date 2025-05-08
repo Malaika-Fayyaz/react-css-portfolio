@@ -42,16 +42,50 @@
 ## Screenshots
 
 ### Home Page
-*(Add actual screenshot here)*
+
+#### Web Mode
+![HomePageWebmode](./src/assets/homepage2.png)
+
+#### With SideNav
+![HomePageWithSideNav](./src/assets/homepage1.png)
+
+#### Mobile Mode
+![HomePagemobilemode](./src/assets/homepage3.png)
 
 ### Education Page
-*(Add actual screenshot here)*
+
+#### Web Mode
+![educationwebmode](./src/assets/education2.png)
+
+#### Mobile Mode
+![educationmobilemode](./src/assets/education1.png)
 
 ### Projects Page
-*(Add actual screenshot here)*
+
+#### Web Mode
+![projectwithsidenav](./src/assets/projects2.png)
+#### Without SideNav
+![projectwithoutsidenav](./src/assets/projects3.png)
+#### Mobile Mode
+![projectsinmobmode](./src/assets/projects1.png)
 
 ### Contact Page
-*(Add actual screenshot here)*
+
+#### Web mode
+![contactinwebmode](./src/assets/contact2.png)
+
+#### Mobile Mode
+![contactinmobilemode](./src/assets/contact1.png)
+
+
+### SideNav in Mobile Mode
+
+![sidenav](./src/assets/sidenav1.png)
+
+
+### Logout DropDown
+
+![dropdown](./src/assets/dropdown.png)
 
 ---
 
