@@ -1,11 +1,16 @@
-import { createContext, useContext ,useState, useEffect } from 'react';
-import { 
-  Drawer, 
-  Avatar, 
-  Typography, 
-  List, 
-  ListItem, 
-  ListItemIcon, 
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect
+} from 'react';
+import {
+  Drawer,
+  Avatar,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
   ListItemText,
   IconButton,
   useMediaQuery,
@@ -23,7 +28,7 @@ import picture from '../assets/mypicture2.jpg';
 
 const DrawerContext = createContext();
 
-export function useDrawerState() {
+export function DrawerProvider({ children }) {
   const isMobile = useMediaQuery('(max-width:768px)');
   const [drawerOpen, setDrawerOpen] = useState(!isMobile);
 
@@ -31,15 +36,104 @@ export function useDrawerState() {
     setDrawerOpen(!isMobile);
   }, [isMobile]);
 
+  return (
+    <DrawerContext.Provider value={{ drawerOpen, setDrawerOpen, isMobile }}>
+      {children}
+    </DrawerContext.Provider>
+  );
+}
+
+export function useDrawerState() {
   return useContext(DrawerContext);
 }
 
-export function DrawerProvider({ children }) {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+function DrawerContent({ toggleDrawer, isMobile }) {
+  const handleNavClick = () => {
+    if (isMobile) toggleDrawer();
+  };
+
   return (
-    <DrawerContext.Provider value={{ drawerOpen, setDrawerOpen }}>
-      {children}
-    </DrawerContext.Provider>
+    <>
+      {/* Desktop close button */}
+      {!isMobile && (
+        <Box
+          sx={{
+            alignSelf: 'flex-end',
+            pr: 2,
+            position: 'fixed',
+            top: 10,
+            left: 10,
+            zIndex: 1200,
+          }}
+        >
+          <IconButton onClick={toggleDrawer} sx={{ color: 'white' }}>
+            <MenuIcon />
+          </IconButton>
+        </Box>
+      )}
+
+      <Avatar
+        src={picture}
+        sx={{
+          width: 150,
+          height: 150,
+          border: '1px solid rgb(146, 159, 177)',
+          marginBottom: '20px'
+        }}
+      />
+      <Typography sx={{
+        textAlign: 'center',
+        fontWeight: 600,
+        fontSize: '30px',
+        marginBottom: '10px',
+        color: '#fff',
+        wordWrap: 'break-word',
+        whiteSpace: 'normal'
+      }}>
+        Malaika Fayyaz
+      </Typography>
+      <Typography sx={{
+        marginBottom: '20px',
+        textAlign: 'center',
+        color: "rgb(146, 159, 177)"
+      }}>
+        Graphic Designer | Game Developer | Content Writer
+      </Typography>
+
+      <List sx={{ width: '100%' }}>
+        {[
+          { text: 'Home', icon: <HomeIcon />, path: '/' },
+          { text: 'Education', icon: <SchoolIcon />, path: '/education' },
+          { text: 'Projects', icon: <WorkIcon />, path: '/projects' },
+          { text: 'Contact', icon: <ContactMailIcon />, path: '/contact' },
+        ].map((item) => (
+          <ListItem
+            button
+            key={item.text}
+            component={Link}
+            to={item.path}
+            onClick={handleNavClick}
+            sx={{
+              color: 'inherit',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                '& .MuiListItemText-root': {
+                  color: 'rgba(199, 189, 189, 0.86)'
+                },
+                '& .MuiListItemIcon-root': {
+                  color: 'rgba(199, 189, 189, 0.86)'
+                }
+              }
+            }}
+          >
+            <ListItemIcon sx={{ color: 'rgb(146, 159, 177)' }}>
+              {item.icon}
+            </ListItemIcon>
+            <ListItemText primary={item.text} />
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 }
 
@@ -50,10 +144,19 @@ function SideNav() {
     setDrawerOpen(!drawerOpen);
   };
 
-  const handleNavClick = () => {
-    if (isMobile) {
-      setDrawerOpen(false);
-    }
+  const drawerStyles = {
+    width: 250,
+    flexShrink: 0,
+    [`& .MuiDrawer-paper`]: {
+      width: 250,
+      boxSizing: 'border-box',
+      backgroundColor: '#2C3E50',
+      color: '#fff',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '20px 0',
+    },
   };
 
   return (
@@ -100,106 +203,29 @@ function SideNav() {
         </IconButton>
       )}
 
-      <Drawer
-        variant={isMobile ? 'temporary' : 'persistent'}
-        open={drawerOpen}
-        onClose={toggleDrawer}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          width: 250,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
-            width: 250,
-            boxSizing: 'border-box',
-            backgroundColor: '#2C3E50',
-            color: '#fff',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '20px 0',
-          },
-        }}
-      >
-        {/* Desktop close button */}
-        {!isMobile && (
-          <Box sx={{ alignSelf: 'flex-end', pr: 2,
-            position: 'fixed',
-            top: 10,
-            left: 10,
-            zIndex: 1200,
-          }}>
-            <IconButton onClick={toggleDrawer} sx={{ color: 'white' }}>
-              <MenuIcon />
-            </IconButton>
-          </Box>
-        )}
-
-        <Avatar
-          src={picture}
-          sx={{ 
-            width: 150, 
-            height: 150, 
-            border: '1px solid rgb(146, 159, 177)', 
-            marginBottom: '20px' 
-          }}
-        />
-        <Typography sx={{ 
-          textAlign: 'center', 
-          fontWeight: 600, 
-          fontSize: '30px', 
-          marginBottom: '10px', 
-          color: '#fff', 
-          wordWrap: 'break-word', 
-          whiteSpace: 'normal' 
-        }}>
-          Malaika Fayyaz
-        </Typography>
-        <Typography sx={{ 
-          marginBottom: '20px', 
-          textAlign: 'center', 
-          color: "rgb(146, 159, 177)" 
-        }}>
-          Graphic Designer | Game Developer | Content Writer
-        </Typography>
-        
-        <List sx={{ width: '100%' }}>
-          {[
-            { text: 'Home', icon: <HomeIcon />, path: '/' },
-            { text: 'Education', icon: <SchoolIcon />, path: '/education' },
-            { text: 'Projects', icon: <WorkIcon />, path: '/projects' },
-            { text: 'Contact', icon: <ContactMailIcon />, path: '/contact' },
-          ].map((item) => (
-            <ListItem 
-              button 
-              key={item.text} 
-              component={Link} 
-              to={item.path}
-              onClick={handleNavClick}
-              sx={{ 
-                color: 'inherit',
-                '&:hover': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  '& .MuiListItemText-root': {
-                    color: 'rgba(199, 189, 189, 0.86)'
-                  },
-                  '& .MuiListItemIcon-root': {
-                    color: 'rgba(199, 189, 189, 0.86)'
-                  }
-                }
-              }}
-            >
-              <ListItemIcon sx={{ color: 'rgb(146, 159, 177)' }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      {/* Render separate drawers based on screen size */}
+      {isMobile ? (
+        <Drawer
+          variant="temporary"
+          open={drawerOpen}
+          onClose={toggleDrawer}
+          ModalProps={{ keepMounted: true }}
+          sx={drawerStyles}
+        >
+          <DrawerContent toggleDrawer={toggleDrawer} isMobile={isMobile} />
+        </Drawer>
+      ) : (
+        <Drawer
+          variant="persistent"
+          open={drawerOpen}
+          sx={drawerStyles}
+        >
+          <DrawerContent toggleDrawer={toggleDrawer} isMobile={isMobile} />
+        </Drawer>
+      )}
     </>
   );
 }
 
 export default SideNav;
+

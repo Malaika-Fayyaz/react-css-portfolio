@@ -50,7 +50,7 @@ function Projects() {
         alignItems: "center",
         justifyContent: 'center',
         marginTop: drawerOpen? '10%' : '10%',
-        marginLeft: drawerOpen? '15%' : '-23%',   
+        marginLeft: isMobile? '7%' : drawerOpen? '15%' : '-23%',   
       }}
     >
       <Grid container spacing={4} justifyContent="flex-start"> 
