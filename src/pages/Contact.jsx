@@ -148,7 +148,7 @@ function ContactForm() {
         />
       </Box>
 
-      {/* Submit Button - Now with perfect positioning */}
+      {/* Submit Button */}
       <Box sx={{ 
         display: 'flex', 
         justifyContent: isMobile ? 'center' : 'flex-end',

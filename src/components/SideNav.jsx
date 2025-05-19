@@ -54,7 +54,6 @@ function DrawerContent({ toggleDrawer, isMobile }) {
 
   return (
     <>
-      {/* Desktop close button */}
       {!isMobile && (
         <Box
           sx={{
@@ -161,7 +160,6 @@ function SideNav() {
 
   return (
     <>
-      {/* Persistent toggle button when drawer is closed (desktop only) */}
       {!drawerOpen && !isMobile && (
         <Tooltip title="Open Menu" placement="right">
           <IconButton
@@ -183,7 +181,6 @@ function SideNav() {
         </Tooltip>
       )}
 
-      {/* Mobile menu button */}
       {isMobile && (
         <IconButton
           onClick={toggleDrawer}
@@ -203,7 +200,6 @@ function SideNav() {
         </IconButton>
       )}
 
-      {/* Render separate drawers based on screen size */}
       {isMobile ? (
         <Drawer
           variant="temporary"

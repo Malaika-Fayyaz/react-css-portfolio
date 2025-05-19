@@ -1,5 +1,5 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { usePageTitle } from '../context/PageTitleContext';
 import profilePic from '../assets/mypicture2.jpg';
 import { useDrawerState } from '../components/SideNav'; 
